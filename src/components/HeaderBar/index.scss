@@ -1,0 +1,50 @@
+@import '../../styles/mixin.scss';
+.top_bar {
+  height: torem(88px);
+  position: relative;
+  background-color: #d43d3d;
+  display: flex;
+  align-items: center;
+  .abs_l {
+    width: torem(108px);
+    z-index: 100;
+    color: #fff;
+    font-size: torem(28px);
+    left: 20px;
+    font-weight: 600;
+  }
+
+  .msg-box {
+    background: url(//s3.pstatp.com/growth/mobile_list/image/feed_ic_message_normal@3x_f2ea949f.png)
+      no-repeat;
+    background-size: contain;
+    width: torem(64px);
+    height: torem(50px);
+    margin-left: torem(24px);
+    display: block;
+    position: relative;
+  }
+
+  .circle {
+    position: absolute;
+    width: torem(20px);
+    height: torem(20px);
+    background-color: #fff;
+    right: torem(10px);
+    top: torem(4px);
+    border-radius: torem(10px);
+  }
+
+  .abs_r {
+  }
+
+  .search {
+    display: inline-block;
+    width: torem(48px);
+    height: torem(48px);
+    background: url(//s3.pstatp.com/growth/mobile_list/image/feed_ic_search_normal@3x_0f198e56.png)
+      no-repeat center;
+    background-size: contain;
+    margin-right: torem(24px);
+  }
+}

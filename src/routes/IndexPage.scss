@@ -1,0 +1,10 @@
+@import '../styles/mixin.scss';
+.indexContainer {
+  display: block;
+  z-index: 999;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
