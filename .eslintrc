@@ -3,6 +3,6 @@
   "rules": {
     "jsx-a11y/heading-has-content": 0,
     "jsx-a11y/href-no-hash": 0,
-    "jsx-a11y/no-script-url": 0
+    "jsx-a11y/alt-text": 0
   }
 }
