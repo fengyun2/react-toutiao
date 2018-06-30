@@ -1,0 +1,92 @@
+@import '../../styles/mixin.scss';
+.top_menu_bar {
+  background-color: #f4f5f6;
+  height: torem(74px);
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  top: torem(88px);
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-image: -webkit-linear-gradient(top, transparent, transparent 40%, #ddd 40%);
+    background-size: 100% 1px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
+  .top_menu_more {
+    float: right;
+    position: relative;
+    .list_shadow {
+      position: absolute;
+      width: torem(20px);
+      height: torem(72px);
+      left: torem(-20px);
+      background: url("../../assets/img/list_shadow.png") no-repeat center right;
+      background-size: contain;
+      background-color: rgba(244, 245, 246, 0.3);
+    }
+    .more_btn {
+      display: block;
+      position: relative;
+      width: torem(80px);
+      height: torem(72px);
+      line-height: torem(72px);
+      background-size: torem(40px);
+      font-size: torem(70px);
+      color: #f85959;
+      text-align: center;
+    }
+    .cross {
+      position: absolute;
+      width: torem(34px);
+      height: torem(34px);
+      opacity: .9;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      &:after,
+      &:before {
+        position: absolute;
+        content: ' ';
+        height: torem(34px);
+        width: 4px;
+        background-color: #f85959;
+      }
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .top_menu_list {
+    overflow: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    font-size: 0;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .btn {
+      white-space: nowrap;
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: torem(20px);
+      padding-right: torem(20px);
+      color: #505050;
+      text-decoration: none;
+      font-size: torem(34px);
+      height: torem(52px);
+      line-height: torem(52px);
+      margin-left: torem(10px);
+      margin-top: torem(10px);
+      margin-bottom: torem(10px);
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}

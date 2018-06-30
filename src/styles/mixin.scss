@@ -1,4 +1,4 @@
 @function torem($px) {
   //$px为需要转换的字号
-  @return $px / 37.5px * 1rem; //37.5px为根字体大小
+  @return $px / 75px * 1rem; //75px为根字体大小
 }

@@ -1,4 +1,4 @@
-@import '../styles/mixin.scss';
+@import "../styles/mixin.scss";
 .indexContainer {
   display: block;
   z-index: 999;
@@ -7,4 +7,107 @@
   top: 0;
   left: 0;
   right: 0;
+  .content {
+    padding-top: torem(75px);
+  }
+}
+
+.feed-list-container {
+  position: relative;
+  display: block;
+  .list_content {
+    -webkit-margin-after-collapse: separate;
+    -webkit-margin-before-collapse: discard;
+    -webkit-user-select: none;
+  }
+  section {
+    position: relative;
+    transition: all 1s ease-in-out;
+    margin: 0 torem(30px);
+    padding: 0;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.6);
+  }
+  .article_link {
+    display: block;
+    position: relative;
+    padding: torem(32px) 0;
+    min-height: torem(84px);
+    font-size: 0;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    -webkit-touch-callout: none;
+    &:visited {
+      .title {
+        color: #aaa;
+      }
+    }
+  }
+  .desc {
+    display: inline-block;
+    width: 67%;
+    vertical-align: middle;
+  }
+  .title {
+    color: #222;
+    font-size: torem(34px);
+    line-height: torem(42px);
+    font-weight: normal;
+  }
+  .image-margin-right {
+    margin-right: torem(24px);
+  }
+  .item_info {
+    color: #999;
+    overflow: hidden;
+    font-size: 0;
+    margin-top: torem(12px);
+    .space {
+      margin-right: torem(10px);
+    }
+    span {
+      display: inline-block;
+      font-size: torem(20px);
+      line-height: torem(24px);
+      vertical-align: middle;
+    }
+    .stick_label {
+      display: inline-block;
+      font-size: torem(18px);
+      line-height: torem(24px);
+      width: torem(48px);
+      text-align: center;
+      border: 1px solid #fff;
+      border-radius: torem(4px);
+      vertical-align: middle;
+    }
+    .hot_label,
+    .app_special,
+    .stick_label {
+      color: #f85959;
+      border-color: rgba(248, 89, 89, 0.5);
+    }
+  }
+  .list_img_holder {
+    height: torem(148px);
+    position: relative;
+    background: url("//s3b.pstatp.com/growth/mobile_list/image/toutiaoicon_loading_textpage@3x_f7c130ce.png") #efefef no-repeat center center;
+    background-size: 50%;
+    img {
+      border: none;
+      display: block;
+      transition: opacity 300ms ease;
+      pointer-events: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-user-select: none;
+      text-decoration: none;
+    }
+  }
+  .middle_mode {
+    .list_img_holder {
+      overflow: hidden;
+      width: 33%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
