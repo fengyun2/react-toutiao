@@ -1,5 +1,42 @@
 // @import './variables.scss';
 @import './mixin.scss';
+
+:global {
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+
+  .btn {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+  }
+
+  .line1 {
+    -webkit-line-clamp: 1;
+  }
+
+  .line2 {
+    -webkit-line-clamp: 2;
+  }
+
+  .line3 {
+    -webkit-line-clamp: 3;
+  }
+
+  .dotdot {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: box;
+    -webkit-box-orient: vertical;
+  }
+}
+
 html,
 body,
 div,
@@ -77,36 +114,4 @@ p {
   max-height: 100%;
 }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
 
-.btn {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-user-select: none;
-}
-
-.line1 {
-  -webkit-line-clamp: 1;
-}
-
-.line2 {
-  -webkit-line-clamp: 2;
-}
-
-.line3 {
-  -webkit-line-clamp: 3;
-}
-
-.dotdot {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  display: box;
-  -webkit-box-orient: vertical;
-}
