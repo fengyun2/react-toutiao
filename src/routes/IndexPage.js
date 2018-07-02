@@ -17,7 +17,6 @@ class IndexPage extends React.Component {
   }
   componentDidMount() {
     this.fetchNews({tag: '__all__'});
-    console.log('h: ', ReactDOM.findDOMNode(this.pageletListContent).offsetTop)
     const hei = this.state.height - ReactDOM
       .findDOMNode(this.pageletListContent)
       .offsetTop;

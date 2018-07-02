@@ -1,0 +1,95 @@
+.channelsContainer {
+  font-size: 16px;
+}
+.toolbar {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  background-color: #d43d3d;
+
+  span {
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 700;
+
+    a {
+      color: #fff;
+      font-weight: 900;
+    }
+
+    &.backBtn {
+      width: 44px;
+      height: 50px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      a {
+        width: 50%;
+        height: 50%;
+        background: url('//s3a.pstatp.com/growth/wap_misc/image/header_back_86a065fc5fe6605cd32e26fe9a2c9f37.png')
+          no-repeat center;
+        background-size: 100%;
+        display: block;
+      }
+    }
+  }
+}
+.controlBlock {
+  width: 100%;
+  font-weight: 500;
+
+  .controlTitle {
+    display: block;
+    padding: 0 10px;
+    line-height: 2em;
+    background-color: #f5f5f5;
+    font-size: 12px;
+    color: #666;
+  }
+
+  .mask {
+    color: red;
+  }
+
+  .controlDetail {
+    margin: 10px 0;
+  }
+
+  .channelFigure {
+    display: inline-block;
+    width: 25%;
+    margin-bottom: 10px;
+    animation: zooIn 0.3s ease;
+
+    a {
+      font-size: 16px;
+      display: block;
+      margin: 0 8px;
+      border: 1px solid #ccc;
+      text-align: center;
+      line-height: 2em;
+    }
+  }
+
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .tuijian a {
+    background-color: #f0f0f0;
+    pointer-events: none;
+  }
+}

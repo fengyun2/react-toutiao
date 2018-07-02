@@ -22,7 +22,10 @@ class TopMenuBar extends React.Component {
       .fetchNews({tag})
   }
   render() {
-    const top_bar = this.props.top_bar;
+    const top_bar = this
+      .props
+      .top_bar
+      .filter(item => !item.del);
     const tag = this.props.tag;
     return (
       <div className={styles.top_menu_bar}>
