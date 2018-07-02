@@ -1,4 +1,4 @@
-@import "../styles/mixin.scss";
+@import '../styles/mixin.scss';
 
 .indexContainer {
   display: block;
@@ -70,7 +70,25 @@
   .list_img_holder_large {
     margin-top: torem(12px);
   }
+  .list_img_holder_large {
+    background: url('//s3b.pstatp.com/growth/mobile_list/image/toutiaoicon_loading_textpage@3x_f7c130ce.png')
+      #efefef no-repeat center center;
+    background-size: torem(108px);
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    min-height: torem(281px);
 
+    img {
+      border: none;
+      display: block;
+      width: 100%;
+      pointer-events: none;
+    }
+  }
+  .list_img_holder_large_fix {
+    height: torem(352px);
+  }
   .list_image {
     ul {
       display: block;
@@ -128,12 +146,25 @@
       color: #f85959;
       border-color: rgba(248, 89, 89, 0.5);
     }
+
+    .hot_label,
+    .recommend_label,
+    .app_special {
+      display: inline-block;
+      font-size: torem(18px);
+      line-height: torem(24px);
+      width: torem(24px);
+      text-align: center;
+      border: 1px solid #fff;
+      border-radius: torem(4px);
+    }
   }
 
   .list_img_holder {
     height: torem(148px);
     position: relative;
-    background: url("//s3b.pstatp.com/growth/mobile_list/image/toutiaoicon_loading_textpage@3x_f7c130ce.png") #efefef no-repeat center center;
+    background: url('//s3b.pstatp.com/growth/mobile_list/image/toutiaoicon_loading_textpage@3x_f7c130ce.png')
+      #efefef no-repeat center center;
     background-size: 50%;
 
     img {

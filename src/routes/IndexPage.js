@@ -8,10 +8,10 @@ import HeaderBar from "../components/HeaderBar";
 import TopMenuBar from "../components/TopMenuBar";
 class IndexPage extends React.Component {
   componentDidMount() {
-    this.fetchNews();
+    this.fetchNews({tag: '__all__'});
   }
 
-  fetchNews(params = {}) {
+  fetchNews = (params = {}) => {
     this
       .props
       .dispatch({type: "list_article/getNews", payload: params});
@@ -31,23 +31,28 @@ class IndexPage extends React.Component {
     return ListImageHtml
   }
   render() {
-    const {top_bar, news, has_more} = this.props.list_article;
+    const {top_bar, news, tag} = this.props.list_article;
     return (
       <div className={styles.indexContainer}>
         <HeaderBar/>
 
         <div className={styles.main}>
-          <TopMenuBar top_bar={top_bar}/>
+          <TopMenuBar top_bar={top_bar} tag={tag} fetchNews={this.fetchNews}/>
           <span/>
           <div className={styles.content}>
             <div className={styles["feed-list-container"]}>
               <div className={styles.list_content}>
                 {news.map((item, index) => (
                   <section
-                    className={classNames(styles.has_actions, styles.middle_mode)}
+                    className={classNames(styles.has_actions, {
+                    [styles.middle_mode]: item.image_url
+                  })}
                     key={index}>
                     <a href="javascript:;" className={classNames(styles.article_link, "clearfix")}>
-                      <div className={classNames(styles.item_detail, item.image_url && styles.desc)}>
+                      <div
+                        className={classNames(styles.item_detail, {
+                        [styles.desc]: item.image_url
+                      })}>
                         <h3
                           className={classNames(styles.title, "dotdot", "line3", styles["image-margin-right"])}>
                           {item.title}
@@ -65,15 +70,21 @@ class IndexPage extends React.Component {
                             </div>
                           )
                           : null}
+                        {item.large_mode && item.large_image_url && (
+                          <div
+                            className={classNames(styles.list_img_holder_large, styles.list_img_holder_large_fix)}>
+                            <img src={item.large_image_url}/>
+                          </div>
+                        )}
                         <div className={styles.item_info}>
 
-                          {item.label && item.label != '广告' && (
+                          {item.label && item.label !== '广告' && (
                             <span className={classNames(styles.stick_label, styles.space)}>
                               {item.label}
                             </span>
                           )}
                           {item.hot === 1 && (
-                            <span className={classNames(styles.stick_label, styles.space)}>
+                            <span className={classNames(styles.hot_label, styles.space)}>
                               热
                             </span>
                           )}

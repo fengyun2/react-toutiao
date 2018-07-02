@@ -14,7 +14,12 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background-image: -webkit-linear-gradient(top, transparent, transparent 40%, #ddd 40%);
+    background-image: -webkit-linear-gradient(
+      top,
+      transparent,
+      transparent 40%,
+      #ddd 40%
+    );
     background-size: 100% 1px;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -27,7 +32,7 @@
       width: torem(20px);
       height: torem(72px);
       left: torem(-20px);
-      background: url("../../assets/img/list_shadow.png") no-repeat center right;
+      background: url('../../assets/img/list_shadow.png') no-repeat center right;
       background-size: contain;
       background-color: rgba(244, 245, 246, 0.3);
     }
@@ -46,7 +51,7 @@
       position: absolute;
       width: torem(34px);
       height: torem(34px);
-      opacity: .9;
+      opacity: 0.9;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
@@ -87,6 +92,10 @@
       margin-top: torem(10px);
       margin-bottom: torem(10px);
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+
+      &.cur {
+        color: #f85959;
+      }
     }
   }
 }

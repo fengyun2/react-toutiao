@@ -3,6 +3,8 @@ import "amfe-flexible";
 import "./styles/index.scss";
 import "./index.css";
 
+import 'moment/locale/zh-cn';
+
 // 1. Initialize
 const app = dva();
 
