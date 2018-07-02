@@ -1,3 +1,4 @@
+// import {persistStore} from 'redux-persist'
 import * as listArticleService from "../services/list_article";
 export default {
   namespace : "list_article",
@@ -256,6 +257,16 @@ export default {
         ...state,
         top_bar,
         top_bar_len
+      }
+    },
+    saveTag(state, {
+      payload: {
+        data: tag
+      }
+    }) {
+      return {
+        ...state,
+        tag
       }
     }
   }

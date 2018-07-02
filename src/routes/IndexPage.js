@@ -16,7 +16,11 @@ class IndexPage extends React.Component {
     height: document.documentElement.clientHeight
   }
   componentDidMount() {
-    this.fetchNews({tag: '__all__'});
+    const {tag} = this.props.list_article
+    console.log('====================================');
+    console.log('tag: ', tag);
+    console.log('====================================');
+    this.fetchNews({tag});
     const hei = this.state.height - ReactDOM
       .findDOMNode(this.pageletListContent)
       .offsetTop;
