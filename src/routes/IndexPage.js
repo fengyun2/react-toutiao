@@ -2,45 +2,58 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "dva";
 import classNames from "classnames";
+
 import {dateFormat} from '../utils/tool'
 import styles from "./IndexPage.scss";
 import HeaderBar from "../components/HeaderBar";
 import TopMenuBar from "../components/TopMenuBar";
+
 class IndexPage extends React.Component {
   componentDidMount() {
     this.fetchNews({tag: '__all__'});
   }
 
-  fetchNews = (params = {}) => {
+  componentWillUnmount() {}
+
+  fetchNews = async(params = {}) => {
+    try {
+      await this
+        .props
+        .dispatch({type: "list_article/getNews", payload: params});
+
+    } catch (err) {}
+
+  }
+  // 加载更多数据
+  loadMore = () => {
+    const {tag} = this.props
+    const params = {
+      tag
+    }
+    this.fetchNews(params)
+  }
+  toDetail = (item) => {
+    if (item.has_video) {
+      alert('这个是视频')
+      return false;
+    }
+
     this
       .props
-      .dispatch({type: "list_article/getNews", payload: params});
-  }
-  renderListImage(item) {
-    let ListImageHtml = '';
-    if (item.has_image && item.image_list.length) {
-      ListImageHtml = `<div className={styles.list_image}>
-        <ul className='clearfix'>`;
-      item
-        .image_list
-        .forEach((img_item, index) => {
-          ListImageHtml += "<li key=" + index + " className={styles.list_img_holder}><img src={" + img_item.url + "} /></li>"
-        })
-      ListImageHtml += '</ul></div>';
-    }
-    return ListImageHtml
-  }
+      .history
+      .push({pathname: `/article_detail/${item.item_id}`});
+  };
   render() {
     const {top_bar, news, tag} = this.props.list_article;
     return (
-      <div className={styles.indexContainer}>
+      <div className={classNames(styles.indexContainer, styles.withHeader)}>
         <HeaderBar/>
 
         <div className={styles.main}>
           <TopMenuBar top_bar={top_bar} tag={tag} fetchNews={this.fetchNews}/>
           <span/>
           <div className={styles.content}>
-            <div className={styles["feed-list-container"]}>
+            <div id="pageletListContent" className={styles["feed-list-container"]}>
               <div className={styles.list_content}>
                 {news.map((item, index) => (
                   <section
@@ -48,7 +61,10 @@ class IndexPage extends React.Component {
                     [styles.middle_mode]: item.image_url
                   })}
                     key={index}>
-                    <a href="javascript:;" className={classNames(styles.article_link, "clearfix")}>
+                    <a
+                      href="javascript:;"
+                      onClick={() => this.toDetail(item)}
+                      className={classNames(styles.article_link, "clearfix")}>
                       <div
                         className={classNames(styles.item_detail, {
                         [styles.desc]: item.image_url

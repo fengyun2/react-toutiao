@@ -1,5 +1,5 @@
 @import '../styles/mixin.scss';
-
+$headerBarHeight: 160px;
 .indexContainer {
   display: block;
   z-index: 999;
@@ -8,15 +8,17 @@
   top: 0;
   left: 0;
   right: 0;
+}
 
-  .content {
-    padding-top: torem(75px);
-  }
+.withHeader {
+  padding-top: torem($headerBarHeight);
 }
 
 .feed-list-container {
   position: relative;
   display: block;
+
+  height: calc(100vh - #{torem($headerBarHeight)});
 
   .list_content {
     -webkit-margin-after-collapse: separate;

@@ -13,6 +13,19 @@ export const getNews = (params = {}) => {
   return request({
     method: "get",
     url: "/list",
-    params: { ...defaultParams, ...params }
+    params: {
+      ...defaultParams,
+      ...params
+    }
   });
 };
+
+export const getArticle = (id = null) => {
+  return request({
+    method: "get",
+    url: `/i${id}/info/`,
+    params: {
+      i: id
+    }
+  });
+}

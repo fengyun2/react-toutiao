@@ -1,0 +1,78 @@
+@import '../../styles/mixin.scss';
+
+.article_header {
+  position: relative;
+  font-size: 12px;
+
+  .article_title {
+    font-size: 22px;
+    line-height: 1.36;
+    color: #222;
+    font-family: 'PingFangSC-Medium';
+    font-weight: 500;
+  }
+}
+
+.article-author {
+  margin-top: 10px;
+}
+
+.avatar {
+  height: 28px;
+  width: 28px;
+  border: none;
+  position: relative;
+  display: inline-block;
+
+  .avatar_image,
+  .avatar_mask {
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .avatar_image {
+    transition: opacity 200ms ease;
+    opacity: 1;
+  }
+  .avatar_mask {
+    background-color: rgba(34, 34, 34, 0.05);
+  }
+}
+
+.article_info {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.article-author-name {
+  vertical-align: top;
+  display: inline-block;
+  font-weight: 600;
+  color: #000;
+  font-size: 14px;
+}
+
+.article-publish-time {
+  font-size: 11px;
+  color: #999;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.favor-btn {
+  font-size: 14px;
+  height: 29px;
+  line-height: 29px;
+  border-radius: 2px;
+  width: 72px;
+  font-weight: 600;
+  float: right;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  background-image: linear-gradient(to right, #f85959, #ff5050);
+}

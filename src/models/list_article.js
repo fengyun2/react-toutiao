@@ -67,8 +67,9 @@ export default {
       }
     ],
     tag: "__all__",
-    has_more: false,
-    news: []
+    has_more: true,
+    news: [],
+    cur_article: {}
   },
 
   subscriptions : {
@@ -89,6 +90,14 @@ export default {
           ...payload
         }
       });
+    },
+    *getArticle({
+      id = null
+    }, {call, put}) {
+      const {data} = yield call(listArticleService.getArticle, id)
+      yield put({type: 'saveArticle', payload: {
+          data
+        }})
     }
   },
 
@@ -105,6 +114,16 @@ export default {
         news,
         tag,
         has_more
+      };
+    },
+    saveArticle(state, {
+      payload: {
+        data: cur_article
+      }
+    }) {
+      return {
+        ...state,
+        cur_article
       };
     }
   }
