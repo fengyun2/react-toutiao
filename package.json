@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "amfe-flexible": "^2.2.1",
+    "antd-mobile": "^2.2.1",
     "axios": "^0.18.0",
     "axios-jsonp": "^1.0.2",
     "better-scroll": "^1.12.4",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
+    "babel-plugin-import": "^1.8.0",
     "ejs-loader": "^0.3.1",
     "eslint": "^4.14.0",
     "eslint-config-umi": "^0.1.1",

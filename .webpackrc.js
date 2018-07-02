@@ -4,19 +4,28 @@ import PxToVw from "px2vw-view-loader";
 
 export default {
   // hash: true,
-  entry: "src/index.js",
-  disableCSSModules: false,
-  ignoreMomentLocale: true,
+  entry : "src/index.js",
+  disableCSSModules : false,
+  ignoreMomentLocale : true,
   /*   autoprefixer : {
     browsers: ['iOS >= 8', 'Android >= 4']
   }, */
-  define: {
-    "process.env.NODE_ENV":
-      process.env.NODE_ENV === "production" ? "production" : "development"
+  define : {
+    "process.env.NODE_ENV": process.env.NODE_ENV === "production"
+      ? "production"
+      : "development"
   },
-  html: {
+  html : {
     template: "./public/index.ejs"
-  }
+  },
+  extraBabelPlugins : [
+    [
+      'import', {
+        libraryName: 'antd-mobile',
+        style: true
+      }
+    ]
+  ],
   /*   extraPostCSSPlugins: [
     PxToVw({
       viewportWidth: 750,

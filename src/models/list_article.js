@@ -81,8 +81,16 @@ export default {
   effects : {
     *getNews({
       payload = {}
-    }, {call, put}) {
-      const {data} = yield call(listArticleService.getNews, payload);
+    }, {select, call, put}) {
+      let {data} = yield call(listArticleService.getNews, payload);
+      const {load_more} = payload;
+      if (load_more) {
+        const news = yield select(state => state.list_article.news)
+        data = [
+          ...news,
+          ...data
+        ]
+      }
       yield put({
         type: "save",
         payload: {
