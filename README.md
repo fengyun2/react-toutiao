@@ -4,3 +4,10 @@
 2.  [toutiao](https://github.com/dddddd1/toutiao)
 3.  [react-toutiao](https://github.com/cd-dongzi/react-toutiao)
 4.  [react-antd-mobile-demo](https://github.com/LeeRayno/react-antd-mobile-demo)
+
+## 部署
+
+```bash
+$ npm run build
+$ git subtree push --prefix=dist origin gh-pages
+```
