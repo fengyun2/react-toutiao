@@ -1,6 +1,17 @@
 import moment from 'moment'
 
+export const isNumber = (num) => {
+  return Object
+    .prototype
+    .toString
+    .call(num) === "[object Number]"
+}
+
 export const dateFormat = (time) => {
+  if (isNumber(time)) {
+    time = time * 1000
+  }
+  // moment.js只能正确转换毫秒级和字符串时间
   return moment(time)
     .startOf('mimute')
     .fromNow()
