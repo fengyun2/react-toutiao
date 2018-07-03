@@ -20,6 +20,11 @@ export default {
   },
   extraBabelPlugins : [
     [
+      "@babel/plugin-proposal-decorators", {
+        "legacy": true
+      }
+    ],
+    [
       'import', {
         libraryName: 'antd-mobile',
         style: true

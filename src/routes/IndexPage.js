@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 import {connect} from "dva";
 import classNames from "classnames";
 import {PullToRefresh} from 'antd-mobile';
+import {lazyload} from 'react-lazyload';
 import {dateFormat} from '../utils/tool'
 import styles from "./IndexPage.scss";
 import HeaderBar from "../components/HeaderBar";
 import TopMenuBar from "../components/TopMenuBar";
 
+@lazyload({height: 200, once: true, offset: 100})
 class IndexPage extends React.Component {
   state = {
     refreshing: false,
