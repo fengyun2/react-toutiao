@@ -30,12 +30,17 @@ class Search extends React.Component {
       .props
       .dispatch({type: "search/getHotWords"});
   }
-  chooseAction = (type) => {
+  chooseAction = (type, fromType) => {
     const searchUrls = {
       baidu: "http://m.baidu.com/s",
       toutiao: "/search/",
       shenma: "http://m.yz.sm.cn/s"
     }
+    /*     const searchFroms = {
+      baidu: "1007976a",
+      toutiao: fromType,
+      shenma: "100041"
+    } */
     const searchKeys = {
       baidu: "word",
       toutiao: "keyword",
@@ -112,7 +117,7 @@ class Search extends React.Component {
             })}>
               {hot_words && hot_words.map((item, index) => (
                 <li key={index}>
-                  <a className={styles.hot_words_link} href="javascript:;">{item.title}</a>
+                  <a className={styles.hot_words_link} href={item.detailUrl}>{item.title}</a>
                 </li>
               ))}
             </ul>
@@ -122,7 +127,7 @@ class Search extends React.Component {
             })}>
               {hot_words && hot_words.map((item, index) => (
                 <li key={index}>
-                  <a className={styles.hot_words_link} href="javascript:;">{item.title}</a>
+                  <a className={styles.hot_words_link} href={item.detailUrl}>{item.title}</a>
                 </li>
               ))}
             </ul>
@@ -132,7 +137,7 @@ class Search extends React.Component {
             })}>
               {hot_words && hot_words.map((item, index) => (
                 <li key={index}>
-                  <a className={styles.hot_words_link} href="javascript:;">{item.title}</a>
+                  <a className={styles.hot_words_link} href={item.detailUrl}>{item.title}</a>
                 </li>
               ))}
             </ul>

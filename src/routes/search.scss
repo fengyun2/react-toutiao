@@ -72,14 +72,23 @@ a {
     width: 0;
     height: 0;
   }
-
+  .arrow_up_shadow {
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid silver;
+    width: 0;
+    height: 0;
+  }
   .arrow_up {
     position: absolute;
     top: -4px;
     left: 10px;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
-    border-top: 5px solid #c9c9c9;
+    border-bottom: 5px solid #c9c9c9;
     width: 0;
     height: 0;
   }
@@ -113,17 +122,6 @@ a {
       visibility: visible;
       opacity: 1;
       transform: scale(1);
-    }
-
-    .arrow_up_shadow {
-      position: absolute;
-      top: -5px;
-      left: 10px;
-      border-right: 5px solid transparent;
-      border-left: 5px solid transparent;
-      border-bottom: 5px solid silver;
-      width: 0;
-      height: 0;
     }
 
     .navigation_categories {
