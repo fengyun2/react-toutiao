@@ -50,7 +50,28 @@
     background: url('//s3a.pstatp.com/growth/mobile_list/image/titlebar_refresh_small@3x_96fb31e4.png')
       no-repeat center center;
     background-size: torem(30px);
+
+    &.rotate {
+      transform-style: preserve-3d;
+      animation: x-spin 0.7s linear;
+    }
   }
+  .rotate {
+    transform-style: preserve-3d;
+    animation: x-spin 0.7s linear;
+  }
+  @keyframes x-spin {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    50% {
+      transform: rotateZ(180deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+
   .abs_l {
     width: torem(108px);
     z-index: 100;

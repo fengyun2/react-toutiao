@@ -61,7 +61,7 @@ class IndexPage extends React.Component {
     const {top_bar, news, tag} = this.props.list_article;
     return (
       <div className={classNames(styles.indexContainer, styles.withHeader)}>
-        <HeaderBar/>
+        <HeaderBar loadMore={this.loadMore} refreshing={this.state.refreshing}/>
 
         <div className={styles.main}>
           <TopMenuBar top_bar={top_bar} tag={tag} fetchNews={this.fetchNews}/>

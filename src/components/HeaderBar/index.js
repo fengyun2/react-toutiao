@@ -9,14 +9,18 @@ class HeaderBar extends React.Component {
       .history
       .push({pathname: "/search", query: {}});
   }
+
   render() {
     return (
       <header className={styles.header}>
         <div className={styles.top_bar}>
           <div className={styles.abs_m}>
             <a href="#" className={classNames(styles.refresh_title, styles.btn)}/>
-            <div className={styles["refreshBtn-container"]}>
-              <i className={styles.refresh_btn}/>
+            <div className={classNames(styles["refreshBtn-container"])}>
+              <i
+                className={classNames(styles.refresh_btn, {
+                [styles.rotate]: this.props.refreshing
+              })}/>
             </div>
           </div>
           <div className={styles.abs_l}>
