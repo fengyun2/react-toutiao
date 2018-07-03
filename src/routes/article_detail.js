@@ -17,7 +17,7 @@ class ArticleDetail extends React.Component {
       cur_article = {}
     } = this.props.list_article
     return (
-      <div styles={styles['weixin-container']}>
+      <div className={styles['weixin-container']}>
         <article className={classNames(styles.article, styles['padding-side'])}>
           <ArticleHeader article={cur_article}/>
           <div
