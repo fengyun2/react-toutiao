@@ -21,7 +21,8 @@
     "react-dom": "^16.2.0",
     "react-lazyload": "^2.3.0",
     "react-loadable": "^5.4.0",
-    "redux-persist": "^5.10.0"
+    "redux-persist": "^5.10.0",
+    "querystring": "^0.2.0"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
