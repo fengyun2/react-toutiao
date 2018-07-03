@@ -8,13 +8,7 @@ class TopMenuBar extends React.Component {
     this
       .props
       .history
-      .push({
-        pathname: "/channels",
-        query: {
-          page: 2,
-          name: "channels"
-        }
-      });
+      .push({pathname: "/channels", query: {}});
   };
   changeNav = (tag) => {
     this

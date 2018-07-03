@@ -1,4 +1,3 @@
-// import {persistStore} from 'redux-persist'
 import * as listArticleService from "../services/list_article";
 export default {
   namespace : "list_article",

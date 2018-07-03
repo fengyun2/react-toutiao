@@ -17,9 +17,6 @@ class IndexPage extends React.Component {
   }
   componentDidMount() {
     const {tag} = this.props.list_article
-    console.log('====================================');
-    console.log('tag: ', tag);
-    console.log('====================================');
     this.fetchNews({tag});
     const hei = this.state.height - ReactDOM
       .findDOMNode(this.pageletListContent)

@@ -1,7 +1,14 @@
 import React from "react";
+import {withRouter} from "dva/router";
 import classNames from "classnames";
 import styles from "./index.scss";
 class HeaderBar extends React.Component {
+  toSearch = () => {
+    this
+      .props
+      .history
+      .push({pathname: "/search", query: {}});
+  }
   render() {
     return (
       <header className={styles.header}>
@@ -18,7 +25,10 @@ class HeaderBar extends React.Component {
             </a>
           </div>
           <div className={styles.abs_r}>
-            <a href="javascript:;" className={classNames(styles.btn, styles.search)}/>
+            <a
+              href="javascript:;"
+              className={classNames(styles.btn, styles.search)}
+              onClick={this.toSearch}/>
           </div>
         </div>
       </header>
@@ -26,4 +36,4 @@ class HeaderBar extends React.Component {
   }
 }
 
-export default HeaderBar;
+export default withRouter(HeaderBar);

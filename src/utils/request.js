@@ -1,26 +1,24 @@
 import axios from "axios";
 import querystring from "querystring";
-// import fetchJsonp from "fetch-jsonp";
+import fetchJsonp from "fetch-jsonp";
 import jsonpAdapter from "axios-jsonp";
-import { BASE_API } from "../config";
+import {BASE_API} from "../config";
 
 //设置默认请求头
-axios.defaults.headers.common["Content-Type"] =
-  "application/x-www-form-urlencoded";
-// 发送请求前处理request的数据
+axios.defaults.headers.common["Content-Type"] = "application/x-www-form-urlencoded";
+/* // 发送请求前处理request的数据
 // axios.defaults.transformRequest = [
 //   function(data) {
 //     return querystring.stringify(data);
 //   }
 // ];
-// 带cookie请求 axios.defaults.withCredentials = true;
+// 带cookie请求 axios.defaults.withCredentials = true; */
 
 // 创建axios实例
 const service = axios.create({
   baseURL: BASE_API, // api的base_url
   timeout: 15000, // 请求超时时间
-  transformRequest: [
-    function(data) {
+  transformRequest: [function (data) {
       // Do whatever you want to transform the data
       return querystring.stringify(data);
     }
@@ -32,8 +30,10 @@ const service = axios.create({
 });
 
 // request拦截器
-service.interceptors.request.use(
-  config => {
+service
+  .interceptors
+  .request
+  .use(config => {
     const token = "";
     if (!config.data) {
       config.data = {};
@@ -42,16 +42,16 @@ service.interceptors.request.use(
     // if (config.method === 'post') {   // 序列化   config.data =
     // querystring.stringify(config.data); }
     return config;
-  },
-  error => {
+  }, error => {
     // Do something with request error console.log(error); // for debug
     return Promise.reject(error);
-  }
-);
+  });
 
 // respone拦截器
-service.interceptors.response.use(
-  response => {
+service
+  .interceptors
+  .response
+  .use(response => {
     // store.dispatch('HideListLoading');
     /**
      * code为非200是抛错 可结合自己业务进行修改
@@ -66,8 +66,7 @@ service.interceptors.response.use(
     } else {
     } */
     return response.data;
-  },
-  err => {
+  }, err => {
     // store.dispatch('HideListLoading');
 
     if (err && err.response) {
@@ -116,13 +115,12 @@ service.interceptors.response.use(
     }
     return Promise.resolve(err.response);
     // return Promise.reject(err);
-  }
-);
+  });
 
 // get 方法请求
 export const get = (url, data) => {
   return axios
-    .get(url, { params: data })
+    .get(url, {params: data})
     .then(res => {
       return Promise.resolve(res);
     })
@@ -143,21 +141,18 @@ export function post(url, data, options) {
     });
 }
 
-/* export function fetchJSONByGet(url, data) {
+export function fetchJSONByGet(url, data = {}) {
   const params = {
     method: "GET"
   };
   const getUrl = `${url}?${querystring.stringify(data)}`;
-  return fetchJsonp(getUrl, params)
-    .then(res => {
-      return res.json();
-    })
-    .then(data => {
-      return Promise.resolve(data);
-    })
-    .catch(err => {
-      return Promise.reject(err);
-    });
-} */
+  return fetchJsonp(getUrl, params).then(res => {
+    return res.json();
+  }).then(data => {
+    return Promise.resolve(data);
+  }).catch(err => {
+    return Promise.reject(err);
+  });
+}
 
 export default service;
