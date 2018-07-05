@@ -33,4 +33,4 @@ app.router(require("./router").default);
 
 // 5. Start
 app.start("#root");
-// persistStore(app._store)
+persistStore(app._store)
