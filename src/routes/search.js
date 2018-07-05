@@ -55,6 +55,9 @@ class Search extends React.Component {
       params.curSearchType = type;
     }
     this.setState(params)
+    this
+      .search_input
+      .focus();
   }
   render() {
     const {hot_words} = this.props.search
@@ -72,7 +75,7 @@ class Search extends React.Component {
                 onClick={this.chooseAction}></a>
               <div className={styles.arrow_down}></div>
               <input
-                ref={el => this.keyword = el}
+                ref={el => this.search_input = el}
                 className={styles.search_input}
                 name={this.state.curSearchKey}
                 type="search"
