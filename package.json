@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "amfe-flexible": "^2.2.1",
-    "antd-mobile": "^2.2.1",
+    "antd-mobile": "^5.0.0",
     "axios": "^0.18.0",
     "axios-jsonp": "^1.0.2",
     "better-scroll": "^1.12.4",
